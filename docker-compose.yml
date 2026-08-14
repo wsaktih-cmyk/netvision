@@ -1,0 +1,42 @@
+services:
+
+  netvision-db:
+    image: postgres:16
+    container_name: netvision-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: netvision
+      POSTGRES_USER: netvision
+      POSTGRES_PASSWORD: netvision_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  netvision-graph:
+    image: neo4j:5
+    container_name: netvision-graph
+    restart: unless-stopped
+    environment:
+      NEO4J_AUTH: neo4j/netvision_password
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    volumes:
+      - neo4j_data:/data
+      - neo4j_logs:/logs
+
+  netvision-cache:
+    image: redis:7
+    container_name: netvision-cache
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+
+volumes:
+  postgres_data:
+  neo4j_data:
+  neo4j_logs:
+  redis_data:

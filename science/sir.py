@@ -6,7 +6,7 @@ Modul simulasi penyebaran malware untuk project NetVision.
     S (Susceptible) -> perangkat rentan: belum terinfeksi, tapi bisa tertular
     I (Infected)     -> perangkat yang sudah terinfeksi malware
     R (Recovered)    -> perangkat yang sudah dipulihkan atau diisolasi dari
-                         jaringan (tidak lagi bisa menulari/tertulari)
+                        jaringan (tidak lagi bisa menulari/tertulari)
 
 Model SIR diskrit (per hari), memakai metode Euler dengan langkah waktu 1 hari:
 
@@ -15,11 +15,11 @@ Model SIR diskrit (per hari), memakai metode Euler dengan langkah waktu 1 hari:
     dR =  gamma * I
 
     N     -> total perangkat (S + I + R), diasumsikan konstan sepanjang
-             simulasi (tidak ada perangkat baru masuk/keluar jaringan)
+            simulasi (tidak ada perangkat baru masuk/keluar jaringan)
     beta  -> tingkat penyebaran: seberapa mudah malware menular antar
-             perangkat per hari
+            perangkat per hari
     gamma -> tingkat pemulihan/isolasi: proporsi perangkat terinfeksi yang
-             dipulihkan atau diisolasi dari jaringan per hari
+            dipulihkan atau diisolasi dari jaringan per hari
 """
 
 
