@@ -1,0 +1,12 @@
+# Mengabaikan file rahasia/password
+.env
+
+# Mengabaikan folder virtual environment
+venv/
+env/
+
+# Mengabaikan file cache bawaan Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd

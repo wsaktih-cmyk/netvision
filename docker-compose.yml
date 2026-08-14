@@ -1,5 +1,4 @@
 services:
-
   netvision-db:
     image: postgres:16
     container_name: netvision-db
@@ -7,7 +6,7 @@ services:
     environment:
       POSTGRES_DB: netvision
       POSTGRES_USER: netvision
-      POSTGRES_PASSWORD: netvision_password
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     ports:
       - "5432:5432"
     volumes:
@@ -18,7 +17,7 @@ services:
     container_name: netvision-graph
     restart: unless-stopped
     environment:
-      NEO4J_AUTH: neo4j/netvision_password
+      NEO4J_AUTH: neo4j/${NEO4J_PASSWORD}
     ports:
       - "7474:7474"
       - "7687:7687"
